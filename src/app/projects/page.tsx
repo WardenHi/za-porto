@@ -1,12 +1,10 @@
 import { projects } from "../../../public/data/projects";
-import Navbar from "../../../public/components/Navbar";
 import Link from "next/link";
 
 export default function Projects() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-6">
-      <Navbar />
-      <h1 className="text-4xl font-bold mb-8">Projek Saya</h1>
+      <h1 className="text-4xl font-bold mb-8">My Projects</h1>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project) => (
           <div key={project.id} className="bg-gray-800 p-6 rounded-lg shadow-lg w-80">

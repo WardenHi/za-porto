@@ -17,8 +17,8 @@ export default function ProjectDetails({ params }: { params: { id: string } }) {
   }
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-6">
-      <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
+    <main className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
+      <h1 className="text-4xl font-bold my-5">{project.title}</h1>
       <Image
         src={project.image}
         alt={project.title}

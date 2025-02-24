@@ -1,12 +1,9 @@
 import Link from "next/link";
-import Navbar from "../../public/components/Navbar";
 
 export default function Home() {
   return (
+    <>
     <main className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
-      {/* Navigation */}
-      <Navbar />
-
       {/* Hero Section */}
       <section className="text-center my-5">
         <h1 className="text-5xl font-bold">WardenHi</h1>
@@ -22,5 +19,6 @@ export default function Home() {
         </button>
       </Link>
     </main>
+    </>
   );
 }

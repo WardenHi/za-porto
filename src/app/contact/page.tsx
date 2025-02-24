@@ -1,10 +1,8 @@
 import Link from "next/link";
-import Navbar from "../../../public/components/Navbar";
 
 export default function Contact() {
     return (
       <main className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
-        <Navbar />
         <h1 className="text-4xl font-bold">Contact</h1>
         <p className="text-gray-300 mt-4 max-w-xl text-center">
           Jangan sungkan untuk kontak saya di alamat pos-el atau LinkedIn :
