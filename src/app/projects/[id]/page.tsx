@@ -1,10 +1,13 @@
-import { projects } from "../../../../public/data/projects";
+import { projects } from "../../data/projects";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ProjectDetails({ params }: { params: { id: string } }) {
-  const project = projects.find((p) => p.id.toString() === params.id);
+interface ProjectDetailsProps {
+  params: { id: string };
+}
 
+export default function ProjectDetails({ params }: ProjectDetailsProps) {
+  const project = projects.find((p) => p.id === params.id);
   if (!project) {
     return (
       <main className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
