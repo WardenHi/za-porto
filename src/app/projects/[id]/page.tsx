@@ -1,12 +1,18 @@
 import { projects } from "../../data/projects";
 import Image from "next/image";
 import Link from "next/link";
-
 interface ProjectDetailsProps {
   params: { id: string };
 }
 
+export async function generateStaticParams() {
+  return projects.map((project) => ({ id: project.id }));
+}
+
 export default function ProjectDetails({ params }: ProjectDetailsProps) {
+  if (!params || !params.id) {
+    throw new Error("Invalid project ID");
+  }
   const project = projects.find((p) => p.id === params.id);
   if (!project) {
     return (
@@ -31,7 +37,7 @@ export default function ProjectDetails({ params }: ProjectDetailsProps) {
       />
       <p className="text-gray-300 mt-4 max-w-2xl text-center">{project.details}</p>
       <Link href={project.link} className="text-blue-400 hover:underline mt-4">
-        Menuju Projek →
+        Menuju Projek (GitHub) →
       </Link>
       <Link href="/projects" className="text-gray-400 mt-6 hover:text-white">
         ← Kembali ke Projek
