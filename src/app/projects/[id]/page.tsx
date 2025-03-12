@@ -1,21 +1,12 @@
 import { projects } from "../../data/projects";
 import Image from "next/image";
 import Link from "next/link";
-interface ProjectDetailsProps {
-  params: { id: string };
-}
+import { notFound } from "next/navigation";
 
-export async function generateStaticParams() {
-  return projects.map((project) => ({ id: project.id }));
-}
-
-export default function ProjectDetails({ params }: ProjectDetailsProps) {
-  if (!params || !params.id) {
-    throw new Error("Invalid project ID");
-  }
+export default function ProjectDetails({ params }: { params: Record<string, string> }) {
   const project = projects.find((p) => p.id === params.id);
-  if (!project) {
-    return (
+  if (!project){
+    return notFound(), (
       <main className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
         <h1 className="text-4xl font-bold">Projek tidak ditemukan.</h1>
         <Link href="/projects" className="text-blue-400 mt-4">
